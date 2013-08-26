@@ -35,7 +35,8 @@ module Data.Digest.OpenSSL.HMAC
 
 import qualified Data.ByteString as B
 import qualified Data.ByteString.Unsafe as BU
-import Foreign
+import Foreign.Safe
+import System.IO.Unsafe
 import Foreign.C.Types
 import Numeric (showHex)
 
