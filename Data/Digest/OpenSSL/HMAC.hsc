@@ -100,13 +100,13 @@ unsafeHMAC (CHF evp_md len) k p =
        what else was I going to do?
     -}
     where
-      go :: (Storable a, Integral a) => Ptr a -> Int -> [String] -> IO String
+      go :: (Storable a, Integral a, Show a) => Ptr a -> Int -> [String] -> IO String
       go !q !n acc
           | n >= len  = return $ concat (reverse acc)
           | otherwise = do w <- peekElemOff q n
                            go q (n+1) (draw w : acc)
 
-      draw :: (Integral a) => a -> String
+      draw :: (Integral a, Show a) => a -> String
       draw w = case showHex w [] of
                  [x] -> ['0', x]
                  x   -> x
