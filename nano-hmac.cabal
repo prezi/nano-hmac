@@ -13,6 +13,10 @@ Build-Type:          Simple
 Tested-With:         GHC == 6.8.2
 extra-source-files:  README test/Makefile test/hmac_hu.hs
 
+source-repository head
+  type:              git
+  location:          https://github.com/hiteshjasani/nano-hmac
+
 library
   build-depends:     base, bytestring
   exposed-modules:   Data.Digest.OpenSSL.HMAC
